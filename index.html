@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Search</title>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Poppins);
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(4, 4, 4);
+  }
+
+  .heading {
+    position: relative;
+    font-size: 3vw;
+    color:#fff;
+    -webkit-text-stroke: 0.3vw #fff;
+    text-transform: uppercase;
+    right:10%;
+  }
+
+  .heading::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #7d2ae8;
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: 2px solid #7d2ae8;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+  }
+  @keyframes animate {
+    0%, 10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+  }
+  .form-label,
+  .form-input,
+  .form-select,
+  .btn {
+    margin-bottom: 20px; /* Adjust this value to set the desired gap */
+  }
+  .btn{
+    position:absolute ;
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 400;
+    box-shadow: 0 5px 10px rgb(0 ,0 ,0 ,0.1);
+    background:#7d2ae8 ;
+    border-radius:6px;
+    border:none;
+  }
+  .form-input{
+    border-radius:6px;
+    font-weight: 400;
+  }
+  .form-label{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+</style>
+
+</head>
+<body>
+<h1 class="heading" data-text="DocumentSearch">DocumentSearch</h1>
+<form id="searchForm" action="/search" method="post">
+  <label for="query" class="form-label">Enter your query:</label><br>
+  <input type="text" id="query" name="query" class="form-input" rows="4" cols="50"><br><br>
+  <label for="language" class="form-label">Select language:</label>
+  <select id="language" name="language" class="form-select">
+    <option value="en">English</option>
+    <option value="fr">French</option>
+  </select><br><br>
+  <button type="submit"  class="btn">Search</button>
+</form>
+</body>
+</html>
+
+

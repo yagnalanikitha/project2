@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Results</title>
+<style>
+  body{
+    color:#fff;
+    background-color:black;
+    text-align:center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+  h2{
+    padding:50px;
+    font-size:50px
+  }
+</style>
+
+</head>
+<body>
+<h1 >Search Results</h1>
+{% if documents %}
+  <h2>Top Relevant Documents</h2>
+  <ul>
+    {% for document in documents %}
+      <li>{{ document }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No documents found.</p>
+{% endif %}
+</body>
+</html>
+
