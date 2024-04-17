@@ -54,7 +54,7 @@ def search():
     language = request.form.get('language', 'en') 
     
     if query.strip() == "":
-        return render_template('error.html', message="Query is empty")
+        return render_template('index2.html', message="Query is empty")
 
   
     processed_query = preprocess(query, language)
@@ -71,9 +71,9 @@ def search():
         top_documents_indices = similarities.argsort(axis=0)[-3:].flatten()
         top_documents = [documents_fr[idx] for idx in top_documents_indices]
     else:
-        return render_template('error.html', message="Unsupported language")
+        return render_template('index2.html', message="Unsupported language")
     
-    return render_template('results.html', documents=top_documents)
+    return render_template('index1.html', documents=top_documents)
 
 if __name__ == '__main__':
     app.run(debug=True)
